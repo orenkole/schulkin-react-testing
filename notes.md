@@ -67,3 +67,33 @@ test("button has correct initial color", () => {
 })
 ```
 
+## Test that Finds Button by Role and Clicks Button
+```javascript
+fireEvent.click
+expect(colorButton).toHaveStyle
+expect(colorButton.textContent).toBe
+```
+```jsx
+test("button has correct initial color", () => {
+  render(<App />);
+  const colorButton = screen.getByRole('button', {name: 'Change to blue'});
+  expect(colorButton).toHaveStyle({backgroundColor: 'red'})
+
+  // click button
+  fireEvent.click(colorButton);
+  expect(colorButton).toHaveStyle({backgroundColor: 'blue'})
+  expect(colorButton.textContent).toBe('Change to red')
+})
+```
+
+## Test Initial Condition of Button and Checkbox
+Check whether button is enabled
+https://github.com/testing-library/jest-dom#tobeenabled
+```javascript
+expect(colorButton).toBeEnabled();
+```
+
+Whether checkbox is checked:
+```javascript
+  expect(checkbox).not.toBeChecked();
+```
