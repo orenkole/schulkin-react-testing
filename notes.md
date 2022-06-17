@@ -100,3 +100,6 @@ Whether checkbox is checked:
 
 ## Introduction to Code Quizzes
 ## Code Quiz! Confirm Button Disable on Checkbox Check
+
+## Finding checkbox with label
+
