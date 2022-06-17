@@ -97,3 +97,6 @@ Whether checkbox is checked:
 ```javascript
   expect(checkbox).not.toBeChecked();
 ```
+
+## Introduction to Code Quizzes
+## Code Quiz! Confirm Button Disable on Checkbox Check
