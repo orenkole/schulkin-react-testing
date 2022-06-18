@@ -103,3 +103,18 @@ Whether checkbox is checked:
 
 ## Finding checkbox with label
 
+## Code Quiz! Disabled Button Turns Gray
+
+## Unit testing functions
+
+## ESLint and prettier
+https://github.com/testing-library/eslint-plugin-testing-library
+https://github.com/testing-library/eslint-plugin-jest-dom
+`% npm i -D eslint-plugin-testing-library eslint-plugin-jest-dom`
+
+Schulkin's rules:
+https://github.com/bonnie/bonniedotdev/blob/master/client/.eslintrc.json
+
+## React bootstrap setup
+We start new app: _sundaes_
+`npm i react-bootstrap bootstrap`
