@@ -165,8 +165,11 @@ test("popover responds to hover", () => {
     expect(popover).toBeInTheDocument();
     // popover disappears when we mouse out
     userEvent.unhover(termsAndConditions);
-    const nullPopoverAgain = screen.queryByText('/no ice cream will actually be delivered/i')
-    expect(nullPopoverAgain).not.toBeInTheDocument();
+    waitForElementToBeRemoved(screen.queryByText('/no ice cream will actually be delivered/i'))
 })
 ```
 ## "Not wrapped in act(...)" Error, Async Disappearance
+wait for disappearing asynchronously
+```javascript
+    await waitForElementToBeRemoved(screen.queryByText('/no ice cream will actually be delivered/i'))
+```

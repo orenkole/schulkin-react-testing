@@ -1,4 +1,4 @@
-import {queryByText, render, screen} from "@testing-library/react";
+import {queryByText, render, screen, waitForElementToBeRemoved} from "@testing-library/react";
 import SummaryForm from "../summaryForm";
 import userEvent from "@testing-library/user-event";
 
@@ -28,7 +28,7 @@ test("Checkbox disables button on first click and enables on second", () => {
     expect(confirmButton).toBeDisabled();
 })
 
-test("popover responds to hover", () => {
+test("popover responds to hover", async () => {
     render(<SummaryForm/>)
     // popover start out hidden
     const nullPopover = screen.queryByText('/no ice cream will actually be delivered/i')
@@ -40,6 +40,5 @@ test("popover responds to hover", () => {
     expect(popover).toBeInTheDocument();
     // popover disappears when we mouse out
     userEvent.unhover(termsAndConditions);
-    const nullPopoverAgain = screen.queryByText('/no ice cream will actually be delivered/i')
-    expect(nullPopoverAgain).not.toBeInTheDocument();
+    await waitForElementToBeRemoved(screen.queryByText('/no ice cream will actually be delivered/i'))
 })
