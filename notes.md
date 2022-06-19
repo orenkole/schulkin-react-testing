@@ -118,3 +118,55 @@ https://github.com/bonnie/bonniedotdev/blob/master/client/.eslintrc.json
 ## React bootstrap setup
 We start new app: _sundaes_
 `npm i react-bootstrap bootstrap`
+
+User events:
+https://github.com/testing-library/user-event
+`npm install --save-dev @testing-library/user-event testing-library/dom`
+
+## Screen query commands
+
+command:
+- _get_ expect element to be in DOM
+- _query_ expect element not to be in DOM
+- _find_ expect element to appear async
+
+Query type:
+- role
+- AltText (images)
+- Text (display elements)
+- Form elements:
+    - PlaceholderText
+    - LabelText
+    - DisplayValue
+    
+https://testing-library.com/docs/dom-testing-library/api
+https://testing-library.com/docs/queries/about
+https://testing-library.com/docs/dom-testing-library/cheatsheet
+
+---
+
+Wait for disappearing:
+https://testing-library.com/docs/guide-disappearance/#waiting-for-appearance
+
+## Testing Element is Not on Page: Start Popover Tests
+```javascript
+userEvent.hover(termsAndConditions)
+```
+```javascript
+test("popover responds to hover", () => {
+    render(<SummaryForm/>)
+    // popover start out hidden
+    const nullPopover = screen.queryByText('/no ice cream will actually be delivered/i')
+    expect(nullPopover).not.toBeInTheDocument();
+    // popover appears upon mouseover of checkbox label
+    const termsAndConditions = screen.getByText(/terms and conditions/i)
+    userEvent.hover(termsAndConditions);
+    const popover = screen.getByText('/no ice cream will actually be delivered/i')
+    expect(popover).toBeInTheDocument();
+    // popover disappears when we mouse out
+    userEvent.unhover(termsAndConditions);
+    const nullPopoverAgain = screen.queryByText('/no ice cream will actually be delivered/i')
+    expect(nullPopoverAgain).not.toBeInTheDocument();
+})
+```
+## "Not wrapped in act(...)" Error, Async Disappearance
