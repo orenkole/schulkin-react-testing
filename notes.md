@@ -173,3 +173,13 @@ wait for disappearing asynchronously
 ```javascript
     await waitForElementToBeRemoved(screen.queryByText('/no ice cream will actually be delivered/i'))
 ```
+
+## Introduction to Mock service worker and handlers
+
+Install mock service worker
+`npm i msw`
+
+- create handlers
+- create test server
+- make sure test server listens during all tests
+- reset after each test
