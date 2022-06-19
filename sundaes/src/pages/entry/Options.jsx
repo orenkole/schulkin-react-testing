@@ -2,6 +2,7 @@ import axios from "axios";
 import {useEffect, useState} from "react";
 import Row from "react-bootstrap/Row";
 import ScoopOption from "./ScoopOption";
+import ToppingOption from "./ToppingOption";
 
 const Options = ({optionType}) => {
     const [items, setItems] = useState([]);

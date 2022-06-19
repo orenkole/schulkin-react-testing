@@ -14,5 +14,23 @@ export const handlers = [
                 },
             ])
         )
+    }),
+    rest.get('http://localhost:3030/toppings', (req, res, cts) => {
+        return res(
+            cts.json([
+                {
+                    "name": "M&Ms",
+                    "imagePath": "/images/m-and-ms.png"
+                },
+                {
+                    "name": "Hot fudge",
+                    "imagePath": "/images/hot-fudge.png"
+                },
+                {
+                    "name": "Peanut butter cups",
+                    "imagePath": "/images/peanut-butter-cups.png"
+                },
+            ])
+        )
     })
 ]
