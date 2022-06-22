@@ -1,6 +1,7 @@
 import {render, screen} from "@testing-library/react"
 
 import Options from "../Options";
+import {OrderDetailsProvider} from "../../../context/OrderDetails";
 
 test("Displays image for each scoop from the server", async () => {
     render(<Options optionType="scoops"/>)
@@ -13,7 +14,9 @@ test("Displays image for each scoop from the server", async () => {
 })
 
 test("Displays image for each topping from the server", async () => {
-    render(<Options optionType="toppings"/>)
+    render(<Options optionType="toppings"/>, {
+        wrapper: OrderDetailsProvider
+    })
     const scoopImages = await screen.findAllByRole('img', {
         name: /topping$/i
     })
