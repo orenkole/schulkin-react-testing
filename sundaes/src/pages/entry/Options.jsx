@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import ScoopOption from "./ScoopOption";
 import ToppingOption from "./ToppingOption";
 import AlertBanner from "../common/AlertBanner";
+import AceEditor from "react-ace";
 
 const Options = ({optionType}) => {
     const [items, setItems] = useState([]);
@@ -34,7 +35,9 @@ const Options = ({optionType}) => {
         />
     ))
 
-    return <div>{optionItems}</div>
+    return <div>{optionItems}
+
+    </div>
 }
 
 export default Options;
