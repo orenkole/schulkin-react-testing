@@ -4,7 +4,6 @@ import Row from "react-bootstrap/Row";
 import ScoopOption from "./ScoopOption";
 import ToppingOption from "./ToppingOption";
 import AlertBanner from "../common/AlertBanner";
-import AceEditor from "react-ace";
 import {pricePerItem} from "../../constants";
 import {useOrderDetails} from "../../context/OrderDetails";
 
@@ -12,10 +11,6 @@ const Options = ({optionType}) => {
     const [items, setItems] = useState([]);
     const [error, setError] = useState(false);
     const [orderDetails, updateItemCount] = useOrderDetails();
-
-    if(error) {
-        return <AlertBanner />
-    }
 
     useEffect(() => {
         axios.get(`http://localhost:3030/${optionType}`)
@@ -27,6 +22,10 @@ const Options = ({optionType}) => {
                 setError(true);
             })
     }, [optionType]);
+
+    if(error) {
+        return <AlertBanner />
+    }
 
     const ItemComponent = optionType === 'scoops' ? ScoopOption : ToppingOption;
     const title = optionType[0].toUpperCase() + optionType.slice(1).toLowerCase();
