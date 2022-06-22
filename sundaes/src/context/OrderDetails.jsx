@@ -54,7 +54,7 @@ export function OrderDetailsProvider(props) {
         // getter: object containing options counts for scoops and toppings
         // setter: updateOptionCount
         return [
-            { ...optionCounts },
+            { ...optionCounts, totals },
             updateItemCount
         ]
     }, [optionCounts, totals])

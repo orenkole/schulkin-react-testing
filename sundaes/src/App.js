@@ -1,16 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Editor from "@monaco-editor/react";
+import Container from "react-bootstrap/Container"
+import OrderEntry from "./pages/entry/OrderEntry";
+import {OrderDetailsProvider} from "./context/OrderDetails";
 
 function App() {
   return (
-    <div className="App">
-        <Editor
-            height="90vh"
-            defaultLanguage="html"
-            defaultValue="// some comment"
-        />
-    </div>
+    <Container>
+        <OrderDetailsProvider>
+            <OrderEntry />
+        </OrderDetailsProvider>
+    </Container>
   );
 }
 
