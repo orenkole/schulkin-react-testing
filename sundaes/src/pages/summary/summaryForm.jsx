@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Popover from "react-bootstrap/Popover";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
 
-const popover = (
-    <Popover id="termsandconditions-popover">
-        <Popover.Content>no ice cream will actually be delivered</Popover.Content>
-    </Popover>
-);
+const tooltip = () => {
+    return (
+        <Tooltip id="termsandconditions-popover">
+            no ice cream will actually be delivered
+        </Tooltip>
+    )
+};
 
 export default function SummaryForm({ setOrderPhase }) {
     const [tcChecked, setTcChecked] = useState(false);
@@ -16,8 +18,8 @@ export default function SummaryForm({ setOrderPhase }) {
     const checkboxLabel = (
         <span>
       I agree to
-      <OverlayTrigger placement="right" overlay={popover}>
-        <span style={{ color: "blue" }}> Terms and Conditions</span>
+      <OverlayTrigger placement="right" overlay={tooltip}>
+        <span style={{ color: "blue" }}>Terms and conditions</span>
       </OverlayTrigger>
     </span>
     );

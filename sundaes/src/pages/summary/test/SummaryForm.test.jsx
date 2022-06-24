@@ -5,11 +5,11 @@ import userEvent from "@testing-library/user-event";
 test("Initial conditions", () => {
     render(<SummaryForm/>)
     const checkbox = screen.getByRole('checkbox', {
-        name: /terms and conditions/i,
+        name: /Terms and conditions/i,
     })
     expect(checkbox).not.toBeChecked();
     const confirmButton = screen.getByRole('button', {
-        name: 'confirm order'
+        name: 'Confirm order'
     })
     expect(confirmButton).toBeDisabled();
 })
@@ -17,10 +17,10 @@ test("Initial conditions", () => {
 test("Checkbox disables button on first click and enables on second", () => {
     render(<SummaryForm/>)
     const checkbox = screen.getByRole('checkbox', {
-        name: /terms and conditions/i,
+        name: /Terms and conditions/i,
     })
     const confirmButton = screen.getByRole('button', {
-        name: 'confirm order'
+        name: 'Confirm order'
     })
     userEvent.click(checkbox)
     expect(confirmButton).toBeEnabled();
@@ -34,11 +34,11 @@ test("popover responds to hover", async () => {
     const nullPopover = screen.queryByText('/no ice cream will actually be delivered/i')
     expect(nullPopover).not.toBeInTheDocument();
     // popover appears upon mouseover of checkbox label
-    const termsAndConditions = screen.getByText(/terms and conditions/i)
+    const termsAndConditions = screen.getByText(/Terms and conditions/i)
     userEvent.hover(termsAndConditions);
-    const popover = screen.getByText('/no ice cream will actually be delivered/i')
+    const popover = screen.getByText(/no ice cream will actually be delivered/i)
     expect(popover).toBeInTheDocument();
     // popover disappears when we mouse out
     userEvent.unhover(termsAndConditions);
-    await waitForElementToBeRemoved(screen.queryByText('/no ice cream will actually be delivered/i'))
+    await waitForElementToBeRemoved(screen.queryByText(/no ice cream will actually be delivered/i))
 })

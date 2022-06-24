@@ -183,3 +183,38 @@ Install mock service worker
 - create test server
 - make sure test server listens during all tests
 - reset after each test
+
+## Set up the mock service worker server
+https://mswjs.io/docs/getting-started/integrate/node
+
+## Tests with Mock Service Worker: Scoop Options
+
+## Using `await findBy` to Find Elements that Populate Asynchronously
+
+## Simulating Server Error Response in Tests
+
+## Running only Selected Tests, and `waitFor`
+
+## Entering Text Input: Subtotal Tests
+
+## Order details context
+https://kentcdodds.com/blog/application-state-management-with-react
+
+![img.png](notes-images/order-details-context-1.png)
+
+## Use context to display scoops subtotal
+
+## Adding Context to Test Setup; Test Catching Error in Code
+`wrapper`
+```javascript
+render(<Options optionType="scoops"/>, {
+                wrapper: OrderDetailsProvider
+        })
+```
+
+## Creating Custom Render to Wrap in Provider By Default
+https://testing-library.com/docs/react-testing-library/setup/
+
+## Review: Scoops subtotal with context
+
+
