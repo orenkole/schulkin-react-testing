@@ -8,9 +8,14 @@ test("Displays image for each scoop from the server", async () => {
     const scoopImages = await screen.findAllByRole('img', {
         name: /scoop$/i
     })
-    expect(scoopImages).toHaveLength(2);
+    expect(scoopImages).toHaveLength(4);
     const altText = scoopImages.map(element => element.alt)
-    expect(altText).toEqual(['Mint chip scoop', 'Vanilla scoop'])
+    expect(altText).toEqual([
+        "Mint chip scoop",
+        "Vanilla scoop",
+        "Chocolate scoop",
+        "Salted caramel scoop"
+    ])
 })
 
 test("Displays image for each topping from the server", async () => {
@@ -20,7 +25,14 @@ test("Displays image for each topping from the server", async () => {
     const scoopImages = await screen.findAllByRole('img', {
         name: /topping$/i
     })
-    expect(scoopImages).toHaveLength(3);
+    expect(scoopImages).toHaveLength(6);
     const altText = scoopImages.map(element => element.alt)
-    expect(altText).toEqual(['M&Ms topping', 'Hot fudge topping', 'Peanut butter cups topping'])
+    expect(altText).toEqual([
+        "Mochi topping",
+        "Cherries topping",
+        "M&Ms topping",
+        "Hot fudge topping",
+        "Peanut butter cups topping",
+        "Gummi bears topping"
+    ])
 })

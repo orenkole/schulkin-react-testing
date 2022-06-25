@@ -12,12 +12,28 @@ export const handlers = [
                     "name": "Vanilla",
                     "imagePath": "/images/vanilla.png"
                 },
+                {
+                    "name": "Chocolate",
+                    "imagePath": "/images/chocolate.png"
+                },
+                {
+                    "name": "Salted caramel",
+                    "imagePath": "/images/salted-caramel.png"
+                }
             ])
         )
     }),
     rest.get('http://localhost:3030/toppings', (req, res, cts) => {
         return res(
             cts.json([
+                {
+                    "name": "Mochi",
+                    "imagePath": "/images/mochi.png"
+                },
+                {
+                    "name": "Cherries",
+                    "imagePath": "/images/cherries.png"
+                },
                 {
                     "name": "M&Ms",
                     "imagePath": "/images/m-and-ms.png"
@@ -30,6 +46,10 @@ export const handlers = [
                     "name": "Peanut butter cups",
                     "imagePath": "/images/peanut-butter-cups.png"
                 },
+                {
+                    "name": "Gummi bears",
+                    "imagePath": "/images/gummi-bears.png"
+                }
             ])
         )
     })

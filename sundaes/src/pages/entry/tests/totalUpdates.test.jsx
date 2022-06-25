@@ -1,7 +1,8 @@
-import {render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Options from "../Options";
 import {OrderDetailsProvider} from "../../../context/OrderDetails";
+import {render, screen} from "../../../test-utils/testing-library-utils";
+import {waitFor} from "@testing-library/react";
 
 test(
     'Update scoop subtotal when scoops change',
@@ -20,3 +21,25 @@ test(
         expect(scoopsSubtotal).toHaveTextContent('2.00')
     }
 )
+
+test('update toppings subtotal when toppings change', async () => {
+        //render parent component
+        render(<Options optionType="toppings" />)
+        await waitFor(async () => {
+                const toppingsTotal = screen.getByText('Toppings total: $', {exact: false})
+                expect(toppingsTotal).toHaveTextContent('0.00')
+                const cherriesCheckbox = await screen.findByRole('checkbox', {
+                        name: 'Mochi'
+                })
+                userEvent.click(cherriesCheckbox);
+                expect(toppingsTotal).toHaveTextContent('1.50')
+
+                const hotFudgeCheckbox = screen.getByRole('checkbox', {
+                        name: 'Hot fudge'
+                })
+                userEvent.click(hotFudgeCheckbox);
+                expect(toppingsTotal).toHaveTextContent('3.00')
+                userEvent.click(hotFudgeCheckbox)
+                expect(toppingsTotal).toHaveTextContent('1.50')
+        })
+})
