@@ -217,4 +217,34 @@ https://testing-library.com/docs/react-testing-library/setup/
 
 ## Review: Scoops subtotal with context
 
+![img.png](notes-images/review-soops.png)
+
+## Grand total
+
+![img.png](notes-images/grand-total-1.png)
+
+## Unmounted component error
+confirm that test is the problem: if we skip the error disappears
+```javascript
+    test.skip('grand total starts at $0.00', () => {
+```
+Reason: component gets async updates after the test is finished
+Solution:
+![img.png](notes-images/unmounted-component-error-1.png)
+
+If we don't have test to include into, we can add await to the of the test that causes error
+
+## What Should Functional Tests Catch? and Refactor
+
+## Order phases
+
+![img.png](notes-images/order-phases-1.png)
+
+## Debugging tips
+```javascript
+screen.debug()
+```
+![img.png](notes-images/debugging-tips-1.png)
+
+## Jest Mock Functions as Props
 
