@@ -1,5 +1,5 @@
 import {queryByText, render, screen, waitForElementToBeRemoved} from "@testing-library/react";
-import SummaryForm from "../summaryForm";
+import SummaryForm from "../SummaryForm";
 import userEvent from "@testing-library/user-event";
 
 test("Initial conditions", () => {

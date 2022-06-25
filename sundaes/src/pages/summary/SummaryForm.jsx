@@ -24,8 +24,13 @@ export default function SummaryForm({ setOrderPhase }) {
     </span>
     );
 
+    const handleSubmit = (ev) => {
+        ev.preventDefault();
+        setOrderPhase('completed')
+    }
+
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group controlId="terms-and-conditions">
                 <Form.Check
                     type="checkbox"
